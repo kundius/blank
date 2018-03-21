@@ -1,0 +1,5 @@
+.idea
+config.core.php
+node_modules/
+.vscode/
+.directory

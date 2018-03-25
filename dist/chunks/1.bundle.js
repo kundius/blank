@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{7:function(n,o){let e=document.querySelectorAll("input");e&&console.log("inputs",e.length)}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{12:function(e,n,o){Promise.all([o.e(3),o.e(4)]).then(o.bind(null,21)).then(e=>{console.log(e.default)});let l=document.querySelectorAll(".button");l&&console.log("buttons",l.length)}}]);

@@ -2,15 +2,14 @@ const webpack = require('webpack');
 const path = require('path');
 const glob = require('glob');
 const env = process.env.WEBPACK_ENV;
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let entry = {}
-glob.sync(path.join(__dirname, 'templates/**/*.js')).forEach(row => {
+glob.sync(path.join(__dirname, 'entry/*.js')).forEach(row => {
     entry[path.parse(row).name] = row
 })
 
 module.exports = {
-    entry: path.join(__dirname, 'index.js'),
+    entry: entry,
     output: {
         path: path.join(__dirname, 'dist/'),
         chunkFilename: 'chunks/[name].bundle.js',
@@ -31,27 +30,22 @@ module.exports = {
         }, {
             test: /\.less$/,
             use: [
-                /*'file-loader?name=[name].css',
-                'extract-loader',*/
-                'style-loader',
-                {
-                    loader: "css-loader",
-                    options: {
-                        minimize: env === 'production' ? true : false
-                    }
-                },
+                'style-loader/url',
+                'file-loader?name=css/[name].css',
+                'extract-loader',
+                'css-loader',
                 'postcss-loader',
                 'less-loader'
             ]
         }, {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                    'css-loader',
-                    'postcss-loader'
-                ]
-            })
+            use: [
+                'style-loader/url',
+                'file-loader?name=[name].css',
+                'extract-loader',
+                'css-loader',
+                'postcss-loader'
+            ]
         }, {
             test: /\.(png|jpg|gif|svg)/,
             use: [{
@@ -98,7 +92,6 @@ module.exports = {
     },
 
     plugins: [
-        new ExtractTextPlugin('main.css'),
         new webpack.DefinePlugin({
             BUNDLED: true,
             VERSION: '1.0'

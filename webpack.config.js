@@ -18,15 +18,20 @@ module.exports = {
     module: {
         rules: [{
             test : /\.js$/,
-            loader: require.resolve('webpack-bem-loader'),
-            options: {
-                naming: 'origin',
-                levels: [path.join(__dirname, 'common.blocks/')],
-                techs: ['js', 'css', 'less', 'html'],
-                generators: {
-                    js: (files) => files.map(file => `import('${file.path}')`).join(',\n')
+            use: [
+                'babel-loader',
+                {
+                    loader: require.resolve('webpack-bem-loader'),
+                    options: {
+                        naming: 'origin',
+                        levels: [path.join(__dirname, 'common.blocks/')],
+                        techs: ['js', 'css', 'less', 'html'],
+                        generators: {
+                            js: (files) => files.map(file => `import('${file.path}')`).join(',\n')
+                        }
+                    }
                 }
-            }
+            ]
         }, {
             test: /\.less$/,
             use: [

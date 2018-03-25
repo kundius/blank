@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{6:function(e,n,o){Promise.all([o.e(3),o.e(4)]).then(o.bind(null,5)).then(e=>{console.log(e.default)});let l=document.querySelectorAll("button");l&&console.log("buttons",l.length)}}]);

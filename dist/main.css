@@ -1,0 +1,17 @@
+input {
+    background: url(img/bg.jpg?64a503ff6be0ab7422b732f07306fae1);
+}
+button {
+    padding: 20px;
+}
+.intro {
+    overflow: hidden;
+    background: yellow;
+    padding: 50px 0;
+}
+
+.intro__text {
+    font-style: 40px;
+    text-align: center;
+    color: #000;
+}

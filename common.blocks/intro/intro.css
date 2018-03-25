@@ -1,0 +1,11 @@
+.intro {
+    overflow: hidden;
+    background: yellow;
+    padding: 50px 0;
+}
+
+.intro__text {
+    font-style: 40px;
+    text-align: center;
+    color: #000;
+}

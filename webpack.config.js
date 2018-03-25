@@ -31,7 +31,13 @@ module.exports = {
             test: /\.less$/,
             use: [
                 'style-loader/url',
-                'file-loader?name=[name].css',
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].css',
+                        outputPath: 'css/'
+                    }
+                },
                 'extract-loader',
                 'css-loader',
                 'postcss-loader',
@@ -41,7 +47,13 @@ module.exports = {
             test: /\.css$/,
             use: [
                 'style-loader/url',
-                'file-loader?name=[name].css',
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].css',
+                        outputPath: 'css/'
+                    }
+                },
                 'extract-loader',
                 'css-loader',
                 'postcss-loader'
@@ -51,7 +63,8 @@ module.exports = {
             use: [{
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]?[hash]',
+                    name: '[name].[ext]',
+                    publicPath: '../img/',
                     outputPath: 'img/'
                 }
             }]
@@ -60,7 +73,7 @@ module.exports = {
             use: [{
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]?[hash]',
+                    name: '[name].[ext]',
                     outputPath: 'img/'
                 }
             }]
@@ -69,7 +82,8 @@ module.exports = {
             use: [{
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]?[hash]',
+                    name: '[name].[ext]',
+                    publicPath: '../fonts/',
                     outputPath: 'fonts/'
                 }
             }]

@@ -1,2 +1,2 @@
-require('b:about');
+require('../templates/about.html');
 require('b:input');

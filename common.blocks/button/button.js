@@ -8,7 +8,7 @@ elements && elements.forEach(el => {
     el.addEventListener('click', () => {
         let input = document.createElement('input')
         input.classList.add('input')
-        el.parentNode.appendChild(input)
+        el.parentNode.appendChild(input);
         require('b:input')
     })
 })
